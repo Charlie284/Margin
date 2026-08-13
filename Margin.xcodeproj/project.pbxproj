@@ -1,0 +1,327 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B00000000000000000000001 /* MarginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000001 /* MarginApp.swift */; };
+		B00000000000000000000002 /* MarginCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000002 /* MarginCommands.swift */; };
+		B00000000000000000000003 /* FocusedDocumentActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000003 /* FocusedDocumentActions.swift */; };
+		B00000000000000000000004 /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000004 /* MarkdownDocument.swift */; };
+		B00000000000000000000005 /* MarkdownModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000005 /* MarkdownModels.swift */; };
+		B00000000000000000000006 /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000006 /* MarkdownParser.swift */; };
+		B00000000000000000000007 /* MarkdownTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000007 /* MarkdownTextView.swift */; };
+		B00000000000000000000008 /* MarkdownSyntaxHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000008 /* MarkdownSyntaxHighlighter.swift */; };
+		B0000000000000000000000A /* InlineMarkdownText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000000A /* InlineMarkdownText.swift */; };
+		B0000000000000000000000B /* MarkdownReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000000B /* MarkdownReader.swift */; };
+		B0000000000000000000000C /* CommandPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000000C /* CommandPalette.swift */; };
+		B0000000000000000000000D /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000000D /* DocumentView.swift */; };
+		B0000000000000000000000E /* DocumentSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000000E /* DocumentSidebar.swift */; };
+		B0000000000000000000000F /* DocumentInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000000F /* DocumentInspector.swift */; };
+		B00000000000000000000010 /* MarkdownParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000010 /* MarkdownParserTests.swift */; };
+		B00000000000000000000011 /* CommandMatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000011 /* CommandMatcherTests.swift */; };
+		B00000000000000000000012 /* DocumentStatisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000012 /* DocumentStatisticsTests.swift */; };
+		B00000000000000000000013 /* WorkspaceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000015 /* WorkspaceModels.swift */; };
+		B00000000000000000000014 /* WorkspaceIndexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000016 /* WorkspaceIndexer.swift */; };
+		B00000000000000000000015 /* WorkspaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000017 /* WorkspaceController.swift */; };
+		B00000000000000000000016 /* QuickOpenPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000018 /* QuickOpenPanel.swift */; };
+		B00000000000000000000017 /* WorkspaceIndexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000019 /* WorkspaceIndexTests.swift */; };
+		B00000000000000000000018 /* ExternalFileMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000001A /* ExternalFileMonitor.swift */; };
+		B00000000000000000000019 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000001B /* AssetManager.swift */; };
+		B0000000000000000000001A /* DocumentServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000001C /* DocumentServicesTests.swift */; };
+		B0000000000000000000001B /* MarkdownHTMLRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000001D /* MarkdownHTMLRenderer.swift */; };
+		B0000000000000000000001C /* DocumentExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000001E /* DocumentExporter.swift */; };
+		B0000000000000000000001D /* ExportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000001F /* ExportTests.swift */; };
+		B0000000000000000000001E /* SpotlightIndexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000021 /* SpotlightIndexer.swift */; };
+		B0000000000000000000001F /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000023 /* PreviewViewController.swift */; };
+		B00000000000000000000020 /* MarkdownModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000005 /* MarkdownModels.swift */; };
+		B00000000000000000000021 /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000006 /* MarkdownParser.swift */; };
+		B00000000000000000000023 /* MarkdownHTMLRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000001D /* MarkdownHTMLRenderer.swift */; };
+		B00000000000000000000024 /* MarginQuickLook.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F00000000000000000000022 /* MarginQuickLook.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy); }; };
+		B00000000000000000000025 /* MarginCLI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000027 /* MarginCLI.swift */; };
+		B00000000000000000000026 /* MarkdownModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000005 /* MarkdownModels.swift */; };
+		B00000000000000000000027 /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000006 /* MarkdownParser.swift */; };
+		B00000000000000000000029 /* MarkdownHTMLRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000001D /* MarkdownHTMLRenderer.swift */; };
+		B0000000000000000000002A /* DocumentExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000001E /* DocumentExporter.swift */; };
+		B0000000000000000000002B /* MarginURLRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000028 /* MarginURLRouter.swift */; };
+		B0000000000000000000002C /* MarginURLRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000028 /* MarginURLRouter.swift */; };
+		B0000000000000000000002D /* margin in Embed Command Line Tool */ = {isa = PBXBuildFile; fileRef = F00000000000000000000026 /* margin */; settings = {ATTRIBUTES = (CodeSignOnCopy); }; };
+		B0000000000000000000002E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000029 /* Assets.xcassets */; };
+		B0000000000000000000002F /* CommandLineToolInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000002A /* CommandLineToolInstaller.swift */; };
+		B00000000000000000000030 /* MarkdownTextDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000002B /* MarkdownTextDecoder.swift */; };
+		B00000000000000000000031 /* MarkdownTextDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000002B /* MarkdownTextDecoder.swift */; };
+		B00000000000000000000032 /* MarkdownTextDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000002B /* MarkdownTextDecoder.swift */; };
+		B00000000000000000000033 /* SupportingFileAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000002C /* SupportingFileAccess.swift */; };
+		B00000000000000000000034 /* DocumentPaletteCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000002D /* DocumentPaletteCommands.swift */; };
+		B00000000000000000000035 /* DocumentExportCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000002E /* DocumentExportCoordinator.swift */; };
+		B00000000000000000000036 /* MarginAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000002F /* MarginAppDelegate.swift */; };
+		B00000000000000000000037 /* MarginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000031 /* MarginUITests.swift */; };
+		B00000000000000000000038 /* MarkdownImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000032 /* MarkdownImageView.swift */; };
+		B00000000000000000000039 /* CodeSyntaxHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000033 /* CodeSyntaxHighlighter.swift */; };
+		B0000000000000000000003A /* DocumentDropCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000034 /* DocumentDropCoordinator.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C00000000000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A00000000000000000000000 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A00000000000000000000001;
+			remoteInfo = Margin;
+		};
+		C00000000000000000000002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A00000000000000000000000 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A00000000000000000000003;
+			remoteInfo = MarginQuickLook;
+		};
+		C00000000000000000000003 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A00000000000000000000000 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A00000000000000000000004;
+			remoteInfo = MarginCLI;
+		};
+		C00000000000000000000004 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A00000000000000000000000 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A00000000000000000000001;
+			remoteInfo = Margin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		P0000000000000000000000A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (B00000000000000000000024 /* MarginQuickLook.appex in Embed App Extensions */);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		P0000000000000000000000D /* Embed Command Line Tool */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = bin;
+			dstSubfolderSpec = 12;
+			files = (B0000000000000000000002D /* margin in Embed Command Line Tool */);
+			name = "Embed Command Line Tool";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F00000000000000000000000 /* Margin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Margin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F00000000000000000000020 /* MarginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F00000000000000000000001 /* MarginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarginApp.swift; sourceTree = "<group>"; };
+		F00000000000000000000002 /* MarginCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarginCommands.swift; sourceTree = "<group>"; };
+		F00000000000000000000003 /* FocusedDocumentActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedDocumentActions.swift; sourceTree = "<group>"; };
+		F00000000000000000000004 /* MarkdownDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownDocument.swift; sourceTree = "<group>"; };
+		F00000000000000000000005 /* MarkdownModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownModels.swift; sourceTree = "<group>"; };
+		F00000000000000000000006 /* MarkdownParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownParser.swift; sourceTree = "<group>"; };
+		F00000000000000000000007 /* MarkdownTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTextView.swift; sourceTree = "<group>"; };
+		F00000000000000000000008 /* MarkdownSyntaxHighlighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownSyntaxHighlighter.swift; sourceTree = "<group>"; };
+		F0000000000000000000000A /* InlineMarkdownText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineMarkdownText.swift; sourceTree = "<group>"; };
+		F0000000000000000000000B /* MarkdownReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownReader.swift; sourceTree = "<group>"; };
+		F0000000000000000000000C /* CommandPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandPalette.swift; sourceTree = "<group>"; };
+		F0000000000000000000000D /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
+		F0000000000000000000000E /* DocumentSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSidebar.swift; sourceTree = "<group>"; };
+		F0000000000000000000000F /* DocumentInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentInspector.swift; sourceTree = "<group>"; };
+		F00000000000000000000010 /* MarkdownParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownParserTests.swift; sourceTree = "<group>"; };
+		F00000000000000000000011 /* CommandMatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandMatcherTests.swift; sourceTree = "<group>"; };
+		F00000000000000000000012 /* DocumentStatisticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentStatisticsTests.swift; sourceTree = "<group>"; };
+		F00000000000000000000013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F00000000000000000000014 /* Margin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Margin.entitlements; sourceTree = "<group>"; };
+		F00000000000000000000015 /* WorkspaceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceModels.swift; sourceTree = "<group>"; };
+		F00000000000000000000016 /* WorkspaceIndexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceIndexer.swift; sourceTree = "<group>"; };
+		F00000000000000000000017 /* WorkspaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceController.swift; sourceTree = "<group>"; };
+		F00000000000000000000018 /* QuickOpenPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickOpenPanel.swift; sourceTree = "<group>"; };
+		F00000000000000000000019 /* WorkspaceIndexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceIndexTests.swift; sourceTree = "<group>"; };
+		F0000000000000000000001A /* ExternalFileMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalFileMonitor.swift; sourceTree = "<group>"; };
+		F0000000000000000000001B /* AssetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
+		F0000000000000000000001C /* DocumentServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentServicesTests.swift; sourceTree = "<group>"; };
+		F0000000000000000000001D /* MarkdownHTMLRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownHTMLRenderer.swift; sourceTree = "<group>"; };
+		F0000000000000000000001E /* DocumentExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentExporter.swift; sourceTree = "<group>"; };
+		F0000000000000000000001F /* ExportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportTests.swift; sourceTree = "<group>"; };
+		F00000000000000000000021 /* SpotlightIndexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightIndexer.swift; sourceTree = "<group>"; };
+		F00000000000000000000022 /* MarginQuickLook.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MarginQuickLook.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F00000000000000000000023 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		F00000000000000000000024 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F00000000000000000000025 /* MarginQuickLook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MarginQuickLook.entitlements; sourceTree = "<group>"; };
+		F00000000000000000000026 /* margin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = margin; sourceTree = BUILT_PRODUCTS_DIR; };
+		F00000000000000000000027 /* MarginCLI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarginCLI.swift; sourceTree = "<group>"; };
+		F00000000000000000000028 /* MarginURLRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarginURLRouter.swift; sourceTree = "<group>"; };
+		F00000000000000000000029 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F0000000000000000000002A /* CommandLineToolInstaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLineToolInstaller.swift; sourceTree = "<group>"; };
+		F0000000000000000000002B /* MarkdownTextDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTextDecoder.swift; sourceTree = "<group>"; };
+		F0000000000000000000002C /* SupportingFileAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportingFileAccess.swift; sourceTree = "<group>"; };
+		F0000000000000000000002D /* DocumentPaletteCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPaletteCommands.swift; sourceTree = "<group>"; };
+		F0000000000000000000002E /* DocumentExportCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentExportCoordinator.swift; sourceTree = "<group>"; };
+		F0000000000000000000002F /* MarginAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarginAppDelegate.swift; sourceTree = "<group>"; };
+		F00000000000000000000030 /* MarginUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarginUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F00000000000000000000031 /* MarginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarginUITests.swift; sourceTree = "<group>"; };
+		F00000000000000000000032 /* MarkdownImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownImageView.swift; sourceTree = "<group>"; };
+		F00000000000000000000033 /* CodeSyntaxHighlighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSyntaxHighlighter.swift; sourceTree = "<group>"; };
+		F00000000000000000000034 /* DocumentDropCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDropCoordinator.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		P00000000000000000000002 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		P00000000000000000000005 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		P00000000000000000000008 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		P0000000000000000000000B /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		G00000000000000000000000 = {
+			isa = PBXGroup;
+			children = (G00000000000000000000001 /* Margin */, G0000000000000000000000A /* MarginTests */, G00000000000000000000010 /* MarginUITests */, G0000000000000000000000E /* MarginQuickLook */, G0000000000000000000000F /* MarginCLI */, G0000000000000000000000B /* Products */);
+			sourceTree = "<group>";
+		};
+		G00000000000000000000001 /* Margin */ = {isa = PBXGroup; children = (G00000000000000000000002 /* App */, G00000000000000000000003 /* DocumentKit */, G00000000000000000000004 /* MarkdownKit */, G00000000000000000000005 /* EditorKit */, G00000000000000000000006 /* RenderKit */, G0000000000000000000000C /* WorkspaceKit */, G0000000000000000000000D /* ExportKit */, G00000000000000000000007 /* CommandKit */, G00000000000000000000008 /* Views */, G00000000000000000000009 /* Resources */); path = Margin; sourceTree = "<group>"; };
+		G00000000000000000000002 /* App */ = {isa = PBXGroup; children = (F00000000000000000000001, F0000000000000000000002F, F00000000000000000000002, F00000000000000000000003, F00000000000000000000028, F0000000000000000000002A); path = App; sourceTree = "<group>"; };
+		G00000000000000000000003 /* DocumentKit */ = {isa = PBXGroup; children = (F00000000000000000000004, F00000000000000000000034, F0000000000000000000001A, F0000000000000000000001B, F0000000000000000000002C); path = DocumentKit; sourceTree = "<group>"; };
+		G00000000000000000000004 /* MarkdownKit */ = {isa = PBXGroup; children = (F00000000000000000000005, F00000000000000000000006, F0000000000000000000002B); path = MarkdownKit; sourceTree = "<group>"; };
+		G00000000000000000000005 /* EditorKit */ = {isa = PBXGroup; children = (F00000000000000000000007, F00000000000000000000008); path = EditorKit; sourceTree = "<group>"; };
+		G00000000000000000000006 /* RenderKit */ = {isa = PBXGroup; children = (F0000000000000000000000A, F0000000000000000000000B, F00000000000000000000032, F00000000000000000000033); path = RenderKit; sourceTree = "<group>"; };
+		G00000000000000000000007 /* CommandKit */ = {isa = PBXGroup; children = (F0000000000000000000000C, F0000000000000000000002D, F00000000000000000000018); path = CommandKit; sourceTree = "<group>"; };
+		G00000000000000000000008 /* Views */ = {isa = PBXGroup; children = (F0000000000000000000000D, F0000000000000000000000E, F0000000000000000000000F); path = Views; sourceTree = "<group>"; };
+		G00000000000000000000009 /* Resources */ = {isa = PBXGroup; children = (F00000000000000000000013, F00000000000000000000014, F00000000000000000000029); path = Resources; sourceTree = "<group>"; };
+		G0000000000000000000000A /* MarginTests */ = {isa = PBXGroup; children = (F00000000000000000000010, F00000000000000000000011, F00000000000000000000012, F00000000000000000000019, F0000000000000000000001C, F0000000000000000000001F); path = MarginTests; sourceTree = "<group>"; };
+		G0000000000000000000000B /* Products */ = {isa = PBXGroup; children = (F00000000000000000000000, F00000000000000000000020, F00000000000000000000030, F00000000000000000000022, F00000000000000000000026); name = Products; sourceTree = "<group>"; };
+		G0000000000000000000000C /* WorkspaceKit */ = {isa = PBXGroup; children = (F00000000000000000000015, F00000000000000000000016, F00000000000000000000017, F00000000000000000000021); path = WorkspaceKit; sourceTree = "<group>"; };
+		G0000000000000000000000D /* ExportKit */ = {isa = PBXGroup; children = (F0000000000000000000001D, F0000000000000000000001E, F0000000000000000000002E); path = ExportKit; sourceTree = "<group>"; };
+		G0000000000000000000000E /* MarginQuickLook */ = {isa = PBXGroup; children = (F00000000000000000000023, F00000000000000000000024, F00000000000000000000025); path = MarginQuickLook; sourceTree = "<group>"; };
+		G0000000000000000000000F /* MarginCLI */ = {isa = PBXGroup; children = (F00000000000000000000027); path = MarginCLI; sourceTree = "<group>"; };
+		G00000000000000000000010 /* MarginUITests */ = {isa = PBXGroup; children = (F00000000000000000000031); path = MarginUITests; sourceTree = "<group>"; };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A00000000000000000000001 /* Margin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = L00000000000000000000001;
+			buildPhases = (P00000000000000000000001 /* Sources */, P00000000000000000000002 /* Frameworks */, P00000000000000000000003 /* Resources */, P0000000000000000000000A /* Embed App Extensions */, P0000000000000000000000D /* Embed Command Line Tool */);
+			buildRules = ();
+			dependencies = (D00000000000000000000002 /* PBXTargetDependency */, D00000000000000000000003 /* PBXTargetDependency */);
+			name = Margin;
+			productName = Margin;
+			productReference = F00000000000000000000000 /* Margin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A00000000000000000000002 /* MarginTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = L00000000000000000000002;
+			buildPhases = (P00000000000000000000004 /* Sources */, P00000000000000000000005 /* Frameworks */, P00000000000000000000006 /* Resources */);
+			buildRules = ();
+			dependencies = (D00000000000000000000001 /* PBXTargetDependency */);
+			name = MarginTests;
+			productName = MarginTests;
+			productReference = F00000000000000000000020 /* MarginTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A00000000000000000000003 /* MarginQuickLook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = L00000000000000000000003;
+			buildPhases = (P00000000000000000000007 /* Sources */, P00000000000000000000008 /* Frameworks */, P00000000000000000000009 /* Resources */);
+			buildRules = ();
+			dependencies = ();
+			name = MarginQuickLook;
+			productName = MarginQuickLook;
+			productReference = F00000000000000000000022 /* MarginQuickLook.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		A00000000000000000000004 /* MarginCLI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = L00000000000000000000004;
+			buildPhases = (P0000000000000000000000C /* Sources */, P0000000000000000000000B /* Frameworks */);
+			buildRules = ();
+			dependencies = ();
+			name = MarginCLI;
+			productName = margin;
+			productReference = F00000000000000000000026 /* margin */;
+			productType = "com.apple.product-type.tool";
+		};
+		A00000000000000000000005 /* MarginUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = L00000000000000000000005;
+			buildPhases = (P0000000000000000000000E /* Sources */, P0000000000000000000000F /* Frameworks */, P00000000000000000000010 /* Resources */);
+			buildRules = ();
+			dependencies = (D00000000000000000000004 /* PBXTargetDependency */);
+			name = MarginUITests;
+			productName = MarginUITests;
+			productReference = F00000000000000000000030 /* MarginUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A00000000000000000000000 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {BuildIndependentTargetsInParallel = 1; LastSwiftUpdateCheck = 2660; LastUpgradeCheck = 2660; TargetAttributes = {A00000000000000000000001 = {CreatedOnToolsVersion = 26.6; }; A00000000000000000000002 = {CreatedOnToolsVersion = 26.6; TestTargetID = A00000000000000000000001; }; A00000000000000000000003 = {CreatedOnToolsVersion = 26.6; }; A00000000000000000000004 = {CreatedOnToolsVersion = 26.6; }; A00000000000000000000005 = {CreatedOnToolsVersion = 26.6; TestTargetID = A00000000000000000000001; }; }; };
+			buildConfigurationList = L00000000000000000000000;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, Base);
+			mainGroup = G00000000000000000000000;
+			productRefGroup = G0000000000000000000000B;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (A00000000000000000000001, A00000000000000000000002, A00000000000000000000003, A00000000000000000000004, A00000000000000000000005);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		P00000000000000000000003 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (B0000000000000000000002E /* Assets.xcassets in Resources */); runOnlyForDeploymentPostprocessing = 0; };
+		P00000000000000000000006 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		P00000000000000000000009 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		P00000000000000000000010 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		P00000000000000000000001 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (B00000000000000000000001, B00000000000000000000002, B00000000000000000000003, B00000000000000000000004, B00000000000000000000005, B00000000000000000000006, B00000000000000000000007, B00000000000000000000008, B0000000000000000000000A, B0000000000000000000000B, B0000000000000000000000C, B0000000000000000000000D, B0000000000000000000000E, B0000000000000000000000F, B00000000000000000000013, B00000000000000000000014, B00000000000000000000015, B00000000000000000000016, B00000000000000000000018, B00000000000000000000019, B0000000000000000000001B, B0000000000000000000001C, B0000000000000000000001E, B0000000000000000000002B, B0000000000000000000002F, B00000000000000000000030, B00000000000000000000033, B00000000000000000000034, B00000000000000000000035, B00000000000000000000036, B00000000000000000000038, B00000000000000000000039, B0000000000000000000003A); runOnlyForDeploymentPostprocessing = 0; };
+		P00000000000000000000004 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (B00000000000000000000010, B00000000000000000000011, B00000000000000000000012, B00000000000000000000017, B0000000000000000000001A, B0000000000000000000001D); runOnlyForDeploymentPostprocessing = 0; };
+		P00000000000000000000007 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (B0000000000000000000001F, B00000000000000000000020, B00000000000000000000021, B00000000000000000000023, B00000000000000000000031); runOnlyForDeploymentPostprocessing = 0; };
+		P0000000000000000000000C /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (B00000000000000000000025, B00000000000000000000026, B00000000000000000000027, B00000000000000000000029, B0000000000000000000002A, B0000000000000000000002C, B00000000000000000000032); runOnlyForDeploymentPostprocessing = 0; };
+		P0000000000000000000000E /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (B00000000000000000000037); runOnlyForDeploymentPostprocessing = 0; };
+		P0000000000000000000000F /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D00000000000000000000001 /* PBXTargetDependency */ = {isa = PBXTargetDependency; target = A00000000000000000000001 /* Margin */; targetProxy = C00000000000000000000001 /* PBXContainerItemProxy */; };
+		D00000000000000000000002 /* PBXTargetDependency */ = {isa = PBXTargetDependency; target = A00000000000000000000003 /* MarginQuickLook */; targetProxy = C00000000000000000000002 /* PBXContainerItemProxy */; };
+		D00000000000000000000003 /* PBXTargetDependency */ = {isa = PBXTargetDependency; target = A00000000000000000000004 /* MarginCLI */; targetProxy = C00000000000000000000003 /* PBXContainerItemProxy */; };
+		D00000000000000000000004 /* PBXTargetDependency */ = {isa = PBXTargetDependency; target = A00000000000000000000001 /* Margin */; targetProxy = C00000000000000000000004 /* PBXContainerItemProxy */; };
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		Q00000000000000000000001 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ANALYZER_NONNULL = YES; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; CLANG_WARN_BOOL_CONVERSION = YES; CLANG_WARN_COMMA = YES; CLANG_WARN_CONSTANT_CONVERSION = YES; CLANG_WARN_DOCUMENTATION_COMMENTS = YES; CLANG_WARN_EMPTY_BODY = YES; CLANG_WARN_ENUM_CONVERSION = YES; CLANG_WARN_INFINITE_RECURSION = YES; CLANG_WARN_INT_CONVERSION = YES; CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES; CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES; CLANG_WARN_OBJC_LITERAL_CONVERSION = YES; CLANG_WARN_RANGE_LOOP_ANALYSIS = YES; CLANG_WARN_STRICT_PROTOTYPES = YES; CLANG_WARN_SUSPICIOUS_MOVE = YES; CLANG_WARN_UNREACHABLE_CODE = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = dwarf; ENABLE_TESTABILITY = YES; GCC_C_LANGUAGE_STANDARD = gnu17; GCC_NO_COMMON_BLOCKS = YES; GCC_OPTIMIZATION_LEVEL = 0; GCC_PREPROCESSOR_DEFINITIONS = ("DEBUG=1", "$(inherited)"); GCC_WARN_64_TO_32_BIT_CONVERSION = YES; GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR; GCC_WARN_UNDECLARED_SELECTOR = YES; GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE; GCC_WARN_UNUSED_FUNCTION = YES; GCC_WARN_UNUSED_VARIABLE = YES; MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE; MTL_FAST_MATH = YES; ONLY_ACTIVE_ARCH = YES; SDKROOT = macosx; SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)"; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; }; name = Debug; };
+		Q00000000000000000000002 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ANALYZER_NONNULL = YES; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; CLANG_WARN_BOOL_CONVERSION = YES; CLANG_WARN_COMMA = YES; CLANG_WARN_CONSTANT_CONVERSION = YES; CLANG_WARN_DOCUMENTATION_COMMENTS = YES; CLANG_WARN_EMPTY_BODY = YES; CLANG_WARN_ENUM_CONVERSION = YES; CLANG_WARN_INFINITE_RECURSION = YES; CLANG_WARN_INT_CONVERSION = YES; CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES; CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES; CLANG_WARN_OBJC_LITERAL_CONVERSION = YES; CLANG_WARN_RANGE_LOOP_ANALYSIS = YES; CLANG_WARN_STRICT_PROTOTYPES = YES; CLANG_WARN_SUSPICIOUS_MOVE = YES; CLANG_WARN_UNREACHABLE_CODE = YES; COPY_PHASE_STRIP = NO; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; ENABLE_NS_ASSERTIONS = NO; GCC_C_LANGUAGE_STANDARD = gnu17; GCC_NO_COMMON_BLOCKS = YES; GCC_WARN_64_TO_32_BIT_CONVERSION = YES; GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR; GCC_WARN_UNDECLARED_SELECTOR = YES; GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE; GCC_WARN_UNUSED_FUNCTION = YES; GCC_WARN_UNUSED_VARIABLE = YES; MTL_ENABLE_DEBUG_INFO = NO; MTL_FAST_MATH = YES; SDKROOT = macosx; SWIFT_COMPILATION_MODE = wholemodule; }; name = Release; };
+		Q00000000000000000000003 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_ENTITLEMENTS = Margin/Resources/Margin.entitlements; CODE_SIGN_STYLE = Automatic; COMBINE_HIDPI_IMAGES = YES; CURRENT_PROJECT_VERSION = 1; ENABLE_HARDENED_RUNTIME = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = Margin/Resources/Info.plist; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks"; MACOSX_DEPLOYMENT_TARGET = 15.0; MARKETING_VERSION = 0.1.0; PRODUCT_BUNDLE_IDENTIFIER = com.marginapp.Margin; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.0; }; name = Debug; };
+		Q00000000000000000000004 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_ENTITLEMENTS = Margin/Resources/Margin.entitlements; CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO; CODE_SIGN_STYLE = Automatic; COMBINE_HIDPI_IMAGES = YES; CURRENT_PROJECT_VERSION = 1; ENABLE_HARDENED_RUNTIME = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = Margin/Resources/Info.plist; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks"; MACOSX_DEPLOYMENT_TARGET = 15.0; MARKETING_VERSION = 0.1.0; PRODUCT_BUNDLE_IDENTIFIER = com.marginapp.Margin; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.0; }; name = Release; };
+		Q00000000000000000000005 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; GENERATE_INFOPLIST_FILE = YES; MACOSX_DEPLOYMENT_TARGET = 15.0; PRODUCT_BUNDLE_IDENTIFIER = com.marginapp.MarginTests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.0; TEST_EXECUTION_TIME_ALLOWANCE = 30; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Margin.app/Contents/MacOS/Margin"; TEST_TIMEOUTS_ENABLED = YES; }; name = Debug; };
+		Q00000000000000000000006 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; GENERATE_INFOPLIST_FILE = YES; MACOSX_DEPLOYMENT_TARGET = 15.0; PRODUCT_BUNDLE_IDENTIFIER = com.marginapp.MarginTests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.0; TEST_EXECUTION_TIME_ALLOWANCE = 30; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Margin.app/Contents/MacOS/Margin"; TEST_TIMEOUTS_ENABLED = YES; }; name = Release; };
+		Q00000000000000000000007 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {APPLICATION_EXTENSION_API_ONLY = YES; CODE_SIGN_ENTITLEMENTS = MarginQuickLook/MarginQuickLook.entitlements; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; ENABLE_HARDENED_RUNTIME = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = MarginQuickLook/Info.plist; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks"; MACOSX_DEPLOYMENT_TARGET = 15.0; MARKETING_VERSION = 0.1.0; PRODUCT_BUNDLE_IDENTIFIER = com.marginapp.Margin.QuickLook; PRODUCT_NAME = "$(TARGET_NAME)"; SKIP_INSTALL = YES; SWIFT_VERSION = 5.0; }; name = Debug; };
+		Q00000000000000000000008 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {APPLICATION_EXTENSION_API_ONLY = YES; CODE_SIGN_ENTITLEMENTS = MarginQuickLook/MarginQuickLook.entitlements; CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; ENABLE_HARDENED_RUNTIME = YES; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = MarginQuickLook/Info.plist; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks"; MACOSX_DEPLOYMENT_TARGET = 15.0; MARKETING_VERSION = 0.1.0; PRODUCT_BUNDLE_IDENTIFIER = com.marginapp.Margin.QuickLook; PRODUCT_NAME = "$(TARGET_NAME)"; SKIP_INSTALL = YES; SWIFT_VERSION = 5.0; }; name = Release; };
+		Q00000000000000000000009 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_STYLE = Automatic; ENABLE_HARDENED_RUNTIME = YES; MACOSX_DEPLOYMENT_TARGET = 15.0; PRODUCT_MODULE_NAME = MarginCommand; PRODUCT_NAME = margin; SWIFT_VERSION = 5.0; }; name = Debug; };
+		Q0000000000000000000000A /* Release */ = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_STYLE = Automatic; ENABLE_HARDENED_RUNTIME = YES; MACOSX_DEPLOYMENT_TARGET = 15.0; PRODUCT_MODULE_NAME = MarginCommand; PRODUCT_NAME = margin; SWIFT_VERSION = 5.0; }; name = Release; };
+		Q0000000000000000000000B /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = YES; MACOSX_DEPLOYMENT_TARGET = 15.0; PRODUCT_BUNDLE_IDENTIFIER = com.marginapp.MarginUITests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.0; TEST_EXECUTION_TIME_ALLOWANCE = 60; TEST_TARGET_NAME = Margin; TEST_TIMEOUTS_ENABLED = YES; }; name = Debug; };
+		Q0000000000000000000000C /* Release */ = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = YES; MACOSX_DEPLOYMENT_TARGET = 15.0; PRODUCT_BUNDLE_IDENTIFIER = com.marginapp.MarginUITests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.0; TEST_EXECUTION_TIME_ALLOWANCE = 60; TEST_TARGET_NAME = Margin; TEST_TIMEOUTS_ENABLED = YES; }; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		L00000000000000000000000 /* Build configuration list for PBXProject */ = {isa = XCConfigurationList; buildConfigurations = (Q00000000000000000000001, Q00000000000000000000002); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		L00000000000000000000001 /* Build configuration list for PBXNativeTarget Margin */ = {isa = XCConfigurationList; buildConfigurations = (Q00000000000000000000003, Q00000000000000000000004); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		L00000000000000000000002 /* Build configuration list for PBXNativeTarget MarginTests */ = {isa = XCConfigurationList; buildConfigurations = (Q00000000000000000000005, Q00000000000000000000006); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		L00000000000000000000003 /* Build configuration list for PBXNativeTarget MarginQuickLook */ = {isa = XCConfigurationList; buildConfigurations = (Q00000000000000000000007, Q00000000000000000000008); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		L00000000000000000000004 /* Build configuration list for PBXNativeTarget MarginCLI */ = {isa = XCConfigurationList; buildConfigurations = (Q00000000000000000000009, Q0000000000000000000000A); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		L00000000000000000000005 /* Build configuration list for PBXNativeTarget MarginUITests */ = {isa = XCConfigurationList; buildConfigurations = (Q0000000000000000000000B, Q0000000000000000000000C); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = A00000000000000000000000 /* Project object */;
+}
