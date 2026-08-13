@@ -14,56 +14,27 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_16.4.app
       - name: Analyze
         run: >-
-          xcodebuild -project Margin.xcodeproj -scheme Margin -configuration Debug
-          -destination 'platform=macOS' -derivedDataPath build/ci-analyze
-          analyze CODE_SIGNING_ALLOWED=NO
+          swift run --package-path Tools/MarginBuild margin-build ci analyze
+          --developer-dir /Applications/Xcode_16.4.app/Contents/Developer
       - name: Test
         run: >-
-          xcodebuild -project Margin.xcodeproj -scheme Margin -configuration Debug
-          -destination 'platform=macOS' -derivedDataPath build/ci-tests
-          test CODE_SIGNING_ALLOWED=NO -skip-testing:MarginUITests
+          swift run --package-path Tools/MarginBuild margin-build ci test
+          --developer-dir /Applications/Xcode_16.4.app/Contents/Developer
       - name: UI smoke test
         run: >-
-          xcodebuild -project Margin.xcodeproj -scheme Margin -configuration Debug
-          -destination 'platform=macOS' -derivedDataPath build/ci-ui-tests
-          test CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=
-          -only-testing:MarginUITests/MarginUITests/testPresentationControlsSwitchModes
+          swift run --package-path Tools/MarginBuild margin-build ci ui-test
+          --developer-dir /Applications/Xcode_16.4.app/Contents/Developer
       - name: Build universal Release
         run: >-
-          xcodebuild -project Margin.xcodeproj -scheme Margin -configuration Release
-          -destination 'generic/platform=macOS' -derivedDataPath build/ci-release
-          ARCHS='arm64 x86_64' ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO build
+          swift run --package-path Tools/MarginBuild margin-build ci build
+          --developer-dir /Applications/Xcode_16.4.app/Contents/Developer
       - name: Validate bundled products
-        run: |
-          app=build/ci-release/Build/Products/Release/Margin.app
-          ql="$app/Contents/PlugIns/MarginQuickLook.appex"
-          test "$(plutil -extract NSExtension.NSExtensionAttributes.QLSupportedContentTypes.0 raw "$ql/Contents/Info.plist")" = "net.daringfireball.markdown"
-          for binary in "$app/Contents/MacOS/Margin" "$app/Contents/SharedSupport/bin/margin" "$ql/Contents/MacOS/MarginQuickLook"; do
-            archs=$(lipo -archs "$binary")
-            [[ " $archs " == *" arm64 "* ]]
-            [[ " $archs " == *" x86_64 "* ]]
-          done
+        run: >-
+          swift run --package-path Tools/MarginBuild margin-build ci validate-products
+          --developer-dir /Applications/Xcode_16.4.app/Contents/Developer
       - name: Exercise CLI validation
-        run: |
-          cli=build/ci-release/Build/Products/Release/margin
-          "$cli" --help
-          version=$("$cli" --version)
-          if [[ "$version" == "margin development" ]]; then
-            echo 'CLI could not discover the app version' >&2
-            exit 1
-          fi
-          if "$cli" --unknown; then
-            echo 'Unknown option unexpectedly succeeded' >&2
-            exit 1
-          fi
-          "$cli" export Samples/Welcome.md --html --output build/cli-check.html
-          test -s build/cli-check.html
-          if "$cli" export Samples/Welcome.md --html --output build/cli-check.html; then
-            echo 'Existing output was overwritten without --force' >&2
-            exit 1
-          fi
-          "$cli" export Samples/Welcome.md --html --output build/cli-check.html --force
+        run: >-
+          swift run --package-path Tools/MarginBuild margin-build ci validate-cli
+          --developer-dir /Applications/Xcode_16.4.app/Contents/Developer

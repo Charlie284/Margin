@@ -50,8 +50,15 @@ open build/Build/Products/Release/Margin.app
 ```
 
 The local build is suitable for development and evaluation. Maintainers who want to distribute a
-signed binary can use [`scripts/release.sh`](scripts/release.sh), which verifies Developer ID
-signatures, submits with `notarytool`, staples the ticket, and checks Gatekeeper acceptance.
+signed binary can use the repository's Swift build tool:
+
+```sh
+swift run --package-path Tools/MarginBuild margin-build release
+```
+
+Set `DEVELOPMENT_TEAM` and `NOTARY_PROFILE` before running it. The tool verifies Developer ID
+signatures and universal binaries, submits with `notarytool`, staples the ticket, checks Gatekeeper
+acceptance, and writes the release ZIP and SHA-256 checksum.
 
 ## Command-line tool
 

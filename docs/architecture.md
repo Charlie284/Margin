@@ -42,5 +42,6 @@ the app builds.
 
 CI runs analysis, unit tests, a UI smoke test, universal Release compilation, and CLI validation.
 Developer ID signing, notarization, stapling, Gatekeeper assessment, and clean-account acceptance are
-handled by `scripts/release.sh` and the release checklist because they require release credentials
-and an external installation environment.
+handled by the Swift executable in `Tools/MarginBuild` and the release checklist because they
+require release credentials and an external installation environment. GitHub Actions only invokes
+the tool; the validation and release workflows are implemented in Swift.
