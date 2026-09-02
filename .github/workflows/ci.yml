@@ -16,7 +16,7 @@ jobs:
     runs-on: macos-15
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Analyze
         run: >-
           swift run --package-path Tools/MarginBuild margin-build ci analyze
