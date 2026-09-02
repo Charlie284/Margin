@@ -28,10 +28,22 @@ final class MarginUITests: XCTestCase {
     XCTAssertTrue(write.exists)
 
     read.click()
-    XCTAssertTrue(read.isSelected)
+    XCTAssertTrue(accessibilityValueIsSelected(read))
     split.click()
-    XCTAssertTrue(split.isSelected)
+    XCTAssertTrue(accessibilityValueIsSelected(split))
     write.click()
-    XCTAssertTrue(write.isSelected)
+    XCTAssertTrue(accessibilityValueIsSelected(write))
+  }
+
+  @MainActor
+  private func accessibilityValueIsSelected(_ element: XCUIElement) -> Bool {
+    let value = element.value
+    if let number = value as? NSNumber {
+      return number.boolValue
+    }
+    if let string = value as? String {
+      return string == "1" || string.caseInsensitiveCompare("true") == .orderedSame
+    }
+    return false
   }
 }
