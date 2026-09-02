@@ -10,8 +10,14 @@ final class MarginUITests: XCTestCase {
     let app = XCUIApplication()
     app.launchArguments = ["-ApplePersistenceIgnoreState", "YES"]
     app.launch()
+    XCTAssertTrue(app.wait(for: .runningForeground, timeout: 8))
 
-    let presentation = app.segmentedControls["Document presentation"]
+    // DocumentGroup opens its browser when no recent document exists. Create a known document so
+    // this test owns the state that exposes the presentation controls.
+    app.typeKey("n", modifierFlags: .command)
+
+    // SwiftUI exposes a segmented Picker as an XCUI radio group on macOS.
+    let presentation = app.radioGroups["Document presentation"]
     XCTAssertTrue(presentation.waitForExistence(timeout: 8))
 
     let read = presentation.radioButtons["Read"]

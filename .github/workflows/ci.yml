@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  macos:
+    runs-on: macos-15
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Analyze
+        run: >-
+          swift run --package-path Tools/MarginBuild margin-build ci analyze
+          --developer-dir /Applications/Xcode_16.4.app/Contents/Developer
+      - name: Test
+        run: >-
+          swift run --package-path Tools/MarginBuild margin-build ci test
+          --developer-dir /Applications/Xcode_16.4.app/Contents/Developer
+      - name: UI smoke test
+        run: >-
+          swift run --package-path Tools/MarginBuild margin-build ci ui-test
+          --developer-dir /Applications/Xcode_16.4.app/Contents/Developer
+      - name: Build universal Release
+        run: >-
+          swift run --package-path Tools/MarginBuild margin-build ci build
+          --developer-dir /Applications/Xcode_16.4.app/Contents/Developer
+      - name: Validate bundled products
+        run: >-
+          swift run --package-path Tools/MarginBuild margin-build ci validate-products
+          --developer-dir /Applications/Xcode_16.4.app/Contents/Developer
+      - name: Exercise CLI validation
+        run: >-
+          swift run --package-path Tools/MarginBuild margin-build ci validate-cli
+          --developer-dir /Applications/Xcode_16.4.app/Contents/Developer

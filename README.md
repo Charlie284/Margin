@@ -1,5 +1,7 @@
 # Margin
 
+[![CI](https://github.com/Charlie284/Margin/actions/workflows/ci.yml/badge.svg)](https://github.com/Charlie284/Margin/actions/workflows/ci.yml)
+
 Margin is a native Markdown editor and reader for macOS. It keeps documents as ordinary Markdown files and gives the same source three useful presentations: Write, Read, and Split.
 
 ![Margin showing Markdown source beside its rendered document](docs/images/margin-split.jpg)
