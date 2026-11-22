@@ -94,7 +94,12 @@ xcodebuild \
 ```
 
 The target layout and security boundaries are documented in
-[`docs/architecture.md`](docs/architecture.md).
+[`docs/architecture.md`](docs/architecture.md). See also
+[`docs/using-margin.md`](docs/using-margin.md) for the user guide,
+[`docs/cli.md`](docs/cli.md) for the full `margin` command reference,
+[`docs/markdown-support.md`](docs/markdown-support.md) for the supported
+Markdown syntax, and [`CONTRIBUTING.md`](CONTRIBUTING.md) for building
+and testing from source.
 
 ## Privacy
 
