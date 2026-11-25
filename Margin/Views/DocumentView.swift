@@ -113,9 +113,6 @@ struct DocumentView: View {
     .task(id: document.text) { await updateParsedDocument() }
     .task(id: fileURL) { startExternalFileMonitoring() }
     .task(id: fileURL) { supportingFileAccess.restore(for: fileURL) }
-    .onChange(of: externalFileMonitor.state) { _, state in
-      if case .failed(let message) = state { openDocumentError = message }
-    }
     .onReceive(NotificationCenter.default.publisher(for: .marginURLRoute)) { notification in
       guard let route = notification.object as? MarginURLRoute else { return }
       apply(route)
@@ -140,6 +137,7 @@ struct DocumentView: View {
     .alert("File Changed on Disk", isPresented: externalConflictIsPresented) {
       Button("Reload from Disk", role: .destructive) { reloadExternalContent() }
       Button("Keep My Changes") { keepLocalContent() }
+      Button("Decide Later", role: .cancel) { deferExternalConflict() }
     } message: {
       Text(
         "This document changed in another app while Margin had local edits. Choose which version to keep."
@@ -489,12 +487,17 @@ struct DocumentView: View {
         case .unchanged:
           lastKnownDiskContent = diskContent
         case .reloadFromDisk:
-          document.text = diskContent
           lastKnownDiskContent = diskContent
+          revertDocumentToDisk(fallback: diskContent)
           workspace.refresh()
         case .conflict:
           externalConflictContent = diskContent
         }
+      } catch let error as NSError
+        where error.domain == NSCocoaErrorDomain && error.code == NSFileReadNoSuchFileError
+      {
+        // The file was deleted or moved. The monitor retries and re-inspects
+        // when it reappears; the in-memory copy stays untouched.
       } catch {
         openDocumentError =
           "Margin couldn’t read an external file change: \(error.localizedDescription)"
@@ -502,32 +505,89 @@ struct DocumentView: View {
     }
   }
 
+  private var nsDocument: NSDocument? {
+    guard let fileURL else { return nil }
+    let standard = fileURL.standardizedFileURL
+    return NSDocumentController.shared.documents.first {
+      $0.fileURL?.standardizedFileURL == standard
+    }
+  }
+
+  private func revertDocumentToDisk(fallback content: String) {
+    guard let fileURL, let document = nsDocument else {
+      self.document.text = content
+      return
+    }
+    do {
+      try document.revert(
+        toContentsOf: fileURL,
+        ofType: document.fileType ?? UTType.marginMarkdown.identifier
+      )
+    } catch {
+      self.document.text = content
+    }
+  }
+
+  private func saveOverExternalChange() {
+    guard let fileURL, let document = nsDocument else { return }
+    if let modified = try? fileURL.resourceValues(forKeys: [.contentModificationDateKey])
+      .contentModificationDate
+    {
+      document.fileModificationDate = modified
+    }
+    document.save(nil)
+  }
+
   private func reloadExternalContent() {
     guard let externalConflictContent else { return }
-    document.text = externalConflictContent
     lastKnownDiskContent = externalConflictContent
     self.externalConflictContent = nil
+    revertDocumentToDisk(fallback: externalConflictContent)
     workspace.refresh()
   }
 
   private func keepLocalContent() {
-    if let externalConflictContent {
-      lastKnownDiskContent = externalConflictContent
-    }
-    externalConflictContent = nil
+    guard let externalConflictContent else { return }
+    lastKnownDiskContent = externalConflictContent
+    self.externalConflictContent = nil
+    saveOverExternalChange()
+  }
+
+  private func deferExternalConflict() {
+    guard let externalConflictContent else { return }
+    lastKnownDiskContent = externalConflictContent
+    self.externalConflictContent = nil
   }
 
   private func sendTextAction(_ selector: Selector) {
     guard isEditable, mode == .write || mode == .split,
-      let editor = NSApp.keyWindow?.firstResponder as? MarginTextView
+      let editor = marginTextView()
     else { return }
     NSApp.sendAction(selector, to: editor, from: nil)
+  }
+
+  private func marginTextView() -> MarginTextView? {
+    guard let window = NSApp.keyWindow else { return nil }
+    if let editor = window.firstResponder as? MarginTextView { return editor }
+    func search(_ view: NSView) -> MarginTextView? {
+      if let view = view as? MarginTextView { return view }
+      for subview in view.subviews {
+        if let found = search(subview) { return found }
+      }
+      return nil
+    }
+    return window.contentView.flatMap(search)
   }
 
   private func focusEditorAndSend(_ selector: Selector) {
     guard isEditable else { return }
     if mode == .read { mode = .write }
-    DispatchQueue.main.async { sendTextAction(selector) }
+    DispatchQueue.main.async {
+      if let editor = self.marginTextView() {
+        NSApp.keyWindow?.makeFirstResponder(editor)
+      }
+      self.sendTextAction(selector)
+    }
   }
 
   private var openDocumentErrorIsPresented: Binding<Bool> {

@@ -1,4 +1,6 @@
 import AppKit
+import SwiftUI
+import UniformTypeIdentifiers
 import XCTest
 
 @testable import Margin
@@ -48,6 +50,82 @@ final class DocumentServicesTests: XCTestCase {
       try MarkdownTextDecoder.decode(try XCTUnwrap("Hello".data(using: .utf16))),
       "Hello"
     )
+  }
+
+  func testMarkdownTextDecoderDetectsBOMsAndBOMlessUTF16() throws {
+    var utf8WithBOM = Data([0xEF, 0xBB, 0xBF])
+    utf8WithBOM.append(Data("# Hi".utf8))
+    let decodedUTF8 = try MarkdownTextDecoder.decodeDetailed(utf8WithBOM)
+    XCTAssertEqual(decodedUTF8.text, "# Hi")
+    XCTAssertEqual(decodedUTF8.encoding, .utf8)
+    XCTAssertTrue(decodedUTF8.hasBOM)
+
+    var utf16LEWithBOM = Data([0xFF, 0xFE])
+    utf16LEWithBOM.append(try XCTUnwrap("# Hi".data(using: .utf16LittleEndian)))
+    let decodedLE = try MarkdownTextDecoder.decodeDetailed(utf16LEWithBOM)
+    XCTAssertEqual(decodedLE.text, "# Hi")
+    XCTAssertEqual(decodedLE.encoding, .utf16LittleEndian)
+    XCTAssertTrue(decodedLE.hasBOM)
+
+    var utf16BEWithBOM = Data([0xFE, 0xFF])
+    utf16BEWithBOM.append(try XCTUnwrap("# Hi".data(using: .utf16BigEndian)))
+    let decodedBE = try MarkdownTextDecoder.decodeDetailed(utf16BEWithBOM)
+    XCTAssertEqual(decodedBE.text, "# Hi")
+    XCTAssertEqual(decodedBE.encoding, .utf16BigEndian)
+    XCTAssertTrue(decodedBE.hasBOM)
+
+    let bomlessLE = try XCTUnwrap("# Heading\nSome text here.".data(using: .utf16LittleEndian))
+    let decodedBomlessLE = try MarkdownTextDecoder.decodeDetailed(bomlessLE)
+    XCTAssertEqual(decodedBomlessLE.text, "# Heading\nSome text here.")
+    XCTAssertEqual(decodedBomlessLE.encoding, .utf16LittleEndian)
+    XCTAssertFalse(decodedBomlessLE.hasBOM)
+
+    let bomlessBE = try XCTUnwrap("# Heading\nSome text here.".data(using: .utf16BigEndian))
+    let decodedBomlessBE = try MarkdownTextDecoder.decodeDetailed(bomlessBE)
+    XCTAssertEqual(decodedBomlessBE.text, "# Heading\nSome text here.")
+    XCTAssertEqual(decodedBomlessBE.encoding, .utf16BigEndian)
+    XCTAssertFalse(decodedBomlessBE.hasBOM)
+  }
+
+  func testDocumentRoundTripPreservesEncodingAndBOM() throws {
+    var source = Data([0xFF, 0xFE])
+    source.append(try XCTUnwrap("# Café".data(using: .utf16LittleEndian)))
+
+    let decoded = try MarkdownTextDecoder.decodeDetailed(source)
+    XCTAssertEqual(decoded.text, "# Café")
+    XCTAssertEqual(decoded.encoding, .utf16LittleEndian)
+    XCTAssertTrue(decoded.hasBOM)
+
+    var edited = MarkdownDocument(text: decoded.text + "\n\nNew paragraph.")
+    edited.encoding = decoded.encoding
+    edited.hasBOM = decoded.hasBOM
+    let written = try edited.fileData()
+
+    XCTAssertEqual(
+      Array(written.prefix(2)),
+      [0xFF, 0xFE],
+      "Save should restore the UTF-16LE byte order mark"
+    )
+    XCTAssertEqual(
+      try MarkdownTextDecoder.decode(written),
+      "# Café\n\nNew paragraph."
+    )
+  }
+
+  func testDocumentRoundTripPreservesUTF8BOM() throws {
+    var source = Data([0xEF, 0xBB, 0xBF])
+    source.append(Data("# Hi".utf8))
+
+    let decoded = try MarkdownTextDecoder.decodeDetailed(source)
+    XCTAssertEqual(decoded.encoding, .utf8)
+    XCTAssertTrue(decoded.hasBOM)
+
+    var document = MarkdownDocument(text: decoded.text)
+    document.encoding = decoded.encoding
+    document.hasBOM = decoded.hasBOM
+    let written = try document.fileData()
+    XCTAssertEqual(Array(written.prefix(3)), [0xEF, 0xBB, 0xBF])
+    XCTAssertEqual(Data(written.suffix(4)), Data("# Hi".utf8))
   }
 
   func testExternalChangeDecisionReloadsOnlyWithoutLocalEdits() {

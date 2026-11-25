@@ -15,6 +15,7 @@ struct MarkdownImageView: View {
         Image(nsImage: image)
           .resizable()
           .scaledToFit()
+          .frame(maxWidth: image.size.width, maxHeight: image.size.height)
           .accessibilityLabel(alt.isEmpty ? "Document image" : alt)
       } else if loadFailed {
         ContentUnavailableView {

@@ -11,9 +11,13 @@ struct MarkdownDocument: FileDocument {
   static let writableContentTypes: [UTType] = [.marginMarkdown]
 
   var text: String
+  var encoding: String.Encoding
+  var hasBOM: Bool
 
   init(text: String = "") {
     self.text = text
+    self.encoding = .utf8
+    self.hasBOM = false
   }
 
   init(configuration: ReadConfiguration) throws {
@@ -21,13 +25,23 @@ struct MarkdownDocument: FileDocument {
       throw CocoaError(.fileReadCorruptFile)
     }
 
-    text = try MarkdownTextDecoder.decode(data)
+    let decoded = try MarkdownTextDecoder.decodeDetailed(data)
+    text = decoded.text
+    encoding = decoded.encoding
+    hasBOM = decoded.hasBOM
+  }
+
+  func fileData() throws -> Data {
+    guard var data = text.data(using: encoding) else {
+      throw CocoaError(.fileWriteInapplicableStringEncoding)
+    }
+    if hasBOM {
+      data.insert(contentsOf: MarkdownTextDecoder.byteOrderMark(for: encoding), at: 0)
+    }
+    return data
   }
 
   func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
-    guard let data = text.data(using: .utf8) else {
-      throw CocoaError(.fileWriteInapplicableStringEncoding)
-    }
-    return FileWrapper(regularFileWithContents: data)
+    FileWrapper(regularFileWithContents: try fileData())
   }
 }

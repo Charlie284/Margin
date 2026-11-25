@@ -23,6 +23,7 @@ final class ExternalFileMonitor: ObservableObject {
 
   @Published private(set) var state: State = .stopped
   private var source: DispatchSourceFileSystemObject?
+  private var retryTask: Task<Void, Never>?
   private var monitoredURL: URL?
   private var changeHandler: (() -> Void)?
 
@@ -36,6 +37,8 @@ final class ExternalFileMonitor: ObservableObject {
   func stop() {
     source?.cancel()
     source = nil
+    retryTask?.cancel()
+    retryTask = nil
     monitoredURL = nil
     changeHandler = nil
     state = .stopped
@@ -47,8 +50,12 @@ final class ExternalFileMonitor: ObservableObject {
     guard descriptor >= 0 else {
       let message = String(cString: strerror(errno))
       state = .failed("External change monitoring is unavailable: \(message)")
+      scheduleRetry()
       return
     }
+
+    retryTask?.cancel()
+    retryTask = nil
 
     let source = DispatchSource.makeFileSystemObjectSource(
       fileDescriptor: descriptor,
@@ -74,5 +81,19 @@ final class ExternalFileMonitor: ObservableObject {
     self.source = source
     source.resume()
     state = .monitoring
+  }
+
+  private func scheduleRetry() {
+    retryTask?.cancel()
+    retryTask = Task { [weak self] in
+      while !Task.isCancelled {
+        try? await Task.sleep(for: .milliseconds(750))
+        guard let self, !Task.isCancelled, let url = self.monitoredURL else { return }
+        guard FileManager.default.fileExists(atPath: url.path) else { continue }
+        self.installSource()
+        self.changeHandler?()
+        return
+      }
+    }
   }
 }
